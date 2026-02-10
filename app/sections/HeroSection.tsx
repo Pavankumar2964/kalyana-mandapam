@@ -8,7 +8,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative w-full min-h-screen h-screenflex items-center justify-center overflow-hidden pt-14 sm:pt-16"
     >
       {/* Background with parallax effect */}
       <div
@@ -23,31 +23,31 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20">
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block mb-4"
+            className="inline-block mb-2 sm:mb-4"
           >
-            <span className="inline-block bg-gold-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+            <span className="inline-block bg-gold-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap">
               ✨ Premium Wedding Venue
             </span>
           </motion.div>
 
-          <h1 className="heading-lg text-white text-shadow mb-4">
+          <h1 className="heading-lg text-white text-shadow mb-2 sm:mb-4">
             Srimathi Santharaghuraman
             <br />
             <span className="text-gold-300">Kalyana Mandapam</span>
           </h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed text-shadow">
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed text-shadow px-2">
             A premier destination for your dream wedding and celebrations in Chittoor
           </p>
         </motion.div>
@@ -57,12 +57,12 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-center gap-2 mb-8"
+          className="flex justify-center gap-1 sm:gap-2 mb-6 sm:mb-8"
         >
-          <div className="inline-flex items-center gap-1 bg-gold-600/90 text-white px-4 py-2 rounded-full">
-            <span className="text-lg">⭐</span>
+          <div className="inline-flex items-center gap-1 bg-gold-600/90 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm">
+            <span className="text-base sm:text-lg">⭐</span>
             <span className="font-semibold">{VENUE_INFO.rating}</span>
-            <span className="text-sm">({VENUE_INFO.reviews} reviews)</span>
+            <span className="text-xs sm:text-sm">({VENUE_INFO.reviews} reviews)</span>
           </div>
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
         >
           <Button variant="primary" size="lg" href={VENUE_INFO.phoneLink}>
             📞 Book Now
@@ -85,9 +85,9 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <div className="text-white text-2xl">↓</div>
+          <div className="text-white text-xl sm:text-2xl">↓</div>
         </motion.div>
       </div>
     </section>
