@@ -1,13 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Footer from './components/Footer'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: 'Srimathi Santharaghuraman Kalyana Mandapam | Wedding Venue Chittoor',
   description: 'Premium wedding hall and event venue in Chittoor, Andhra Pradesh. Fully equipped with dining facilities, spacious halls, and family rooms. Perfect for your special day.',
   keywords: 'kalyana mandapam, wedding hall, event venue, Chittoor, Tirupati Road, wedding celebration',
   authors: [{ name: 'Srimathi Santharaghuraman Kalyana Mandapam' }],
-  viewport: 'width=device-width, initial-scale=1.0',
   openGraph: {
     type: 'website',
     locale: 'en_US',
