@@ -16,14 +16,14 @@ export default function GallerySection() {
       : GALLERY_IMAGES.filter((img) => img.category === selectedCategory)
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <FadeInUp>
-          <div className="text-center mb-12">
-            <h2 className="heading-md text-gray-900 mb-4">Gallery</h2>
-            <div className="h-1 w-16 bg-gradient-gold mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="heading-md text-gray-900 mb-3 sm:mb-4">Gallery</h2>
+            <div className="h-1 w-12 sm:w-16 bg-gradient-gold mx-auto rounded-full mb-3 sm:mb-4"></div>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               Explore our beautiful venue through stunning visuals
             </p>
           </div>
@@ -31,12 +31,12 @@ export default function GallerySection() {
 
         {/* Category Filter */}
         <FadeInUp delay={0.1}>
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-10 md:mb-12 px-2">
             {GALLERY_CATEGORIES.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full font-semibold transition-all duration-300 ${
                   selectedCategory === category.id
                     ? 'bg-gradient-gold text-white shadow-lg scale-105'
                     : 'bg-white text-gold-600 border-2 border-gold-600 hover:bg-gold-50'
@@ -49,7 +49,7 @@ export default function GallerySection() {
         </FadeInUp>
 
         {/* Gallery Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredImages.map((image, idx) => (
               <motion.div
@@ -60,16 +60,16 @@ export default function GallerySection() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setSelectedImage(image.id)}
-                className="group relative h-64 rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                className="group relative h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl overflow-hidden cursor-pointer shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-2xl transition-shadow duration-300"
               >
                 <img
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-2 sm:p-4">
                   <div>
-                    <p className="text-white font-semibold">{image.title}</p>
+                    <p className="text-white font-semibold text-xs sm:text-sm">{image.title}</p>
                   </div>
                 </div>
               </motion.div>
@@ -85,29 +85,29 @@ export default function GallerySection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-2 sm:p-4"
             >
               <motion.div
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl max-h-screen"
+                className="relative max-w-4xl max-h-screen max-h-[90vh] w-full"
               >
                 {GALLERY_IMAGES.map(
                   (image) =>
                     image.id === selectedImage && (
                       <div key={image.id} className="bg-black rounded-lg overflow-hidden">
                         <img src={image.src} alt={image.alt} className="w-full h-auto" />
-                        <div className="bg-gray-900 p-4 text-white text-center">
-                          <p className="font-semibold">{image.title}</p>
+                        <div className="bg-gray-900 p-3 sm:p-4 text-white text-center">
+                          <p className="font-semibold text-sm sm:text-base">{image.title}</p>
                         </div>
                       </div>
                     )
                 )}
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                  className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/20 hover:bg-white/40 text-white rounded-full w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center transition-colors text-lg sm:text-xl"
                 >
                   ✕
                 </button>
