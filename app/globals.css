@@ -132,27 +132,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .heading-lg {
-    @apply text-2xl leading-snug;
+    font-size: 1.5rem;
+    line-height: 1.2;
   }
 
   .heading-md {
-    @apply text-xl leading-snug;
+    font-size: 1.25rem;
+    line-height: 1.2;
   }
 
   .heading-sm {
-    @apply text-lg leading-snug;
+    font-size: 1.125rem;
+    line-height: 1.2;
   }
 
   .glass {
-    @apply p-4;
+    padding: 1rem;
   }
 
   section {
-    @apply py-12;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .max-w-7xl {
-    @apply px-3;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 
@@ -163,67 +168,74 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .heading-lg {
-    @apply text-3xl leading-snug;
+    font-size: 1.875rem;
+    line-height: 1.2;
   }
 
   .heading-md {
-    @apply text-2xl leading-snug;
+    font-size: 1.5rem;
+    line-height: 1.2;
   }
 
   .heading-sm {
-    @apply text-xl leading-snug;
+    font-size: 1.25rem;
+    line-height: 1.2;
   }
 
   section {
-    @apply py-16;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .max-w-7xl {
-    @apply px-4;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   /* Gallery grid adjustment */
   .grid.grid-cols-1 {
-    @apply grid-cols-2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 /* Tablet - 769px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .heading-lg {
-    @apply text-5xl;
+    font-size: 3rem;
   }
 
   .heading-md {
-    @apply text-4xl;
+    font-size: 2.25rem;
   }
 
   section {
-    @apply py-16;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   /* Optimize spacing for tablets */
   .gap-8 {
-    @apply gap-6;
+    gap: 1.5rem;
   }
 
   .gap-12 {
-    @apply gap-8;
+    gap: 2rem;
   }
 }
 
 /* Large Devices - 1025px and above */
 @media (min-width: 1025px) {
   .heading-lg {
-    @apply text-6xl;
+    font-size: 3.75rem;
   }
 
   .heading-md {
-    @apply text-5xl;
+    font-size: 3rem;
   }
 
   section {
-    @apply py-20;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -234,61 +246,63 @@ h1, h2, h3, h4, h5, h6 {
 /* Text responsiveness */
 @media (max-width: 640px) {
   .text-lg {
-    @apply text-base;
+    font-size: 1rem;
   }
 
   .text-xl {
-    @apply text-lg;
+    font-size: 1.125rem;
   }
 
   .text-2xl {
-    @apply text-xl;
+    font-size: 1.5rem;
   }
 
   .text-3xl {
-    @apply text-2xl;
+    font-size: 1.875rem;
   }
 
   .text-4xl {
-    @apply text-3xl;
+    font-size: 2.25rem;
   }
 
   .text-5xl {
-    @apply text-4xl;
+    font-size: 3rem;
   }
 
   /* Padding adjustments */
   .p-8 {
-    @apply p-4;
+    padding: 1rem;
   }
 
   .px-8 {
-    @apply px-4;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .py-8 {
-    @apply py-4;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   /* Margin adjustments */
   .mb-8 {
-    @apply mb-4;
+    margin-bottom: 1rem;
   }
 
   .mb-12 {
-    @apply mb-6;
+    margin-bottom: 1.5rem;
   }
 
   .mb-16 {
-    @apply mb-8;
+    margin-bottom: 2rem;
   }
 
   .gap-8 {
-    @apply gap-4;
+    gap: 1rem;
   }
 
   .gap-12 {
-    @apply gap-6;
+    gap: 1.5rem;
   }
 }
 
@@ -299,30 +313,30 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero section responsiveness */
 @media (max-width: 640px) {
   .h-screen {
-    @apply min-h-screen;
+    min-height: 100vh;
   }
 
   .pt-16 {
-    @apply pt-12;
+    padding-top: 3rem;
   }
 }
 
 /* Cards and containers */
 @media (max-width: 768px) {
   .rounded-2xl {
-    @apply rounded-lg;
+    border-radius: 0.5rem;
   }
 
   .shadow-2xl {
-    @apply shadow-lg;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .h-96 {
-    @apply h-64;
+    height: 16rem;
   }
 
   .min-h-96 {
-    @apply min-h-64;
+    min-height: 16rem;
   }
 }
 
@@ -332,12 +346,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (hover: none) and (pointer: coarse) {
   /* Mobile devices - disable hover scale for performance */
-  .hover\:scale-105:hover {
-    @apply scale-100;
-  }
-
   button, a {
-    @apply min-h-11 min-w-11; /* Minimum 44x44px tap target */
+    min-height: 2.75rem;
+    min-width: 2.75rem;
   }
 }
 
@@ -348,7 +359,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Slightly thinner borders and shadows for retina */
   .border {
-    @apply border-opacity-90;
+    border-color: rgba(0, 0, 0, 0.09);
   }
 }
 
@@ -358,15 +369,16 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (orientation: landscape) and (max-height: 600px) {
   section {
-    @apply py-8;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .heading-lg {
-    @apply text-3xl;
+    font-size: 1.875rem;
   }
 
   .heading-md {
-    @apply text-2xl;
+    font-size: 1.5rem;
   }
 }
 
