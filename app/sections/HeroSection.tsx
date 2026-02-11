@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Button from '@/app/components/Button'
 import { VENUE_INFO } from '@/lib/data'
+import { url } from 'inspector'
 
 export default function HeroSection() {
   return (
@@ -11,16 +12,14 @@ export default function HeroSection() {
       className="relative w-full min-h-screen h-screenflex items-center justify-center overflow-hidden pt-14 sm:pt-16"
     >
       {/* Background with parallax effect */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1519224557371-0ab8d3b3db4d?w=1200&h=800&fit=crop")',
-          transform: 'scale(1.05)',
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
+     <div
+  className="absolute inset-0 w-full h-full bg-[url('/mandapam.jpeg')] bg-cover bg-center bg-fixed"
+  style={{
+    transform: 'scale(1.05)',
+  }}
+>
+  <div className="absolute inset-0 bg-black/40"></div>
+</div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20">
