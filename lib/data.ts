@@ -109,12 +109,12 @@ export const GALLERY_CATEGORIES = [
 
 export const GALLERY_IMAGES = [
   {
-    id: 1,
-    src: 'https://images.unsplash.com/photo-1469226945411-66a091d72210?w=800&h=600&fit=crop',
-    alt: 'Wedding stage with floral decoration',
-    category: 'stage',
-    title: 'Stage Decoration',
-  },
+  id: 1,
+  src: '/stageflower.jpeg',
+  alt: 'Wedding stage with floral decoration',
+  category: 'stage',
+  title: 'Stage Decoration',
+},
   {
     id: 2,
     src: 'https://images.unsplash.com/photo-1538631137307-37c217d21c0d?w=800&h=600&fit=crop',
