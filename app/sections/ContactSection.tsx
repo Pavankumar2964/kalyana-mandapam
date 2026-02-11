@@ -18,18 +18,20 @@ export default function ContactSection() {
           </div>
         </FadeInUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-          {/* Map */}
-          <FadeInUp delay={0.1}>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-  <iframe
-    src={VENUE_INFO.mapEmbedUrl}
-    className="absolute inset-0 w-full h-full"
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    title="Venue Location"
-  />
-</div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+  {/* Map */}
+  <FadeInUp delay={0.1}>
+    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d970.994951994577!2d79.10820033512762!3d13.226583763892569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb267c71bf189f9%3A0x7a403565ce805377!2sSrimathi%20santharaghuraman%20kalyana%20mandapam(lgb)chittoor!5e0!3m2!1sen!2sin!4v1770793044224!5m2!1sen!2sin"
+        className="absolute inset-0 w-full h-full"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Venue Location"
+      />
+    </div>
           </FadeInUp>
 
           {/* Contact Info */}
