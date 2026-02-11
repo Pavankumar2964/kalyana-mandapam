@@ -131,7 +131,7 @@ export const GALLERY_IMAGES = [
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1512208736306-c0c01a6cfc90?w=800&h=600&fit=crop',
+    src: '/mandapam.jpegw=800&h=600&fit=crop',
     alt: 'Exterior view of mandapam',
     category: 'exterior',
     title: 'Exterior View',
