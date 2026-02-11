@@ -5,12 +5,16 @@ import Footer from './components/Footer'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
+  display: 'swap',
   variable: '--font-display',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
 })
 
 const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
+  display: 'swap',
   variable: '--font-sans',
 })
 
