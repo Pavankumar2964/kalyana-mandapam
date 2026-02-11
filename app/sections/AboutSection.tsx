@@ -16,30 +16,31 @@ export default function AboutSection() {
         </FadeInUp>
 
         {/* Main Description */}
-        <FadeInUp delay={0.1}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-12 md:mb-16">
-            <div className="space-y-3 sm:space-y-4">
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                {VENUE_INFO.description}
-              </p>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Located at {VENUE_INFO.address}, our venue is easily accessible and welcomes
-                guests from across the region. We pride ourselves on delivering excellence in
-                every detail.
-              </p>
-            </div>
+      <FadeInUp delay={0.1}>
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-12 md:mb-16">
+    
+    <div className="space-y-3 sm:space-y-4">
+      <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+        {VENUE_INFO.description}
+      </p>
+      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+        Located at {VENUE_INFO.address}, our venue is easily accessible and welcomes
+        guests from across the region. We pride ourselves on delivering excellence in
+        every detail.
+      </p>
+    </div>
 
-            {/* Image */}
-            <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1495632066924-e7b99247bc94?w=600&h=600&fit=crop"
-                alt="Kalyana Mandapam"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl"></div>
-            </div>
-          </div>
-        </FadeInUp>
+    <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl">
+      <img
+        src="/KL.jpeg"
+        alt="Kalyana Mandapam"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl"></div>
+    </div>
+
+  </div>
+</FadeInUp>
 
         {/* Highlights */}
         <FadeInUp delay={0.2}>
