@@ -138,7 +138,7 @@ export const GALLERY_IMAGES = [
   },
   {
     id: 5,
-    src: '/stageflower.jpegw=800&h=600&fit=crop',
+    src: '/stageflower.jpeg',
     alt: 'Stage with beautiful lighting',
     category: 'stage',
     title: 'Stage Lighting',
