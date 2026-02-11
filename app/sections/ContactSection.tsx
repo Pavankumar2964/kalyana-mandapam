@@ -3,7 +3,8 @@
 import FadeInUp from '@/app/components/FadeInUp'
 import Button from '@/app/components/Button'
 import { VENUE_INFO } from '@/lib/data'
-import { FaPhone, FaMapMarkerAlt, FaStar } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaStar } from 'react-icons/fa'
+import { MdCall } from 'react-icons/md'
 import { motion } from 'framer-motion'
 
 export default function ContactSection() {
@@ -60,8 +61,8 @@ export default function ContactSection() {
                 whileHover={{ x: 5 }}
                 className="flex gap-3 sm:gap-4 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl bg-blue-50 border border-blue-200/50 hover:shadow-md md:hover:shadow-lg transition-shadow"
               >
-                <div className="text-blue-600 text-lg sm:text-xl md:text-2xl flex-shrink-0 mt-0.5">
-                  <FaPhone />
+                <div className="text-blue-600 text-xl sm:text-2xl flex-shrink-0 mt-0.5">
+                  <MdCall />
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-serif font-bold text-gray-900 mb-1">
@@ -115,8 +116,8 @@ export default function ContactSection() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
-                <Button variant="primary" size="md" href={VENUE_INFO.phoneLink}>
-                  📞 Call Now
+                <Button variant="primary" size="md" href={VENUE_INFO.phoneLink} className="flex items-center gap-2">
+                  <MdCall size={20} /> Call Now
                 </Button>
      <Button
   variant="secondary"

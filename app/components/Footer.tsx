@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { VENUE_INFO } from '@/lib/data'
-import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaMapMarkerAlt } from 'react-icons/fa'
+import { MdCall } from 'react-icons/md'
 
 export default function Footer() {
   return (
@@ -25,7 +26,7 @@ export default function Footer() {
             <h4 className="text-base sm:text-lg font-serif font-bold mb-3 sm:mb-4 text-gold-400">Contact</h4>
             <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-2">
-                <FaPhone className="text-gold-400 mt-0.5 flex-shrink-0 text-xs sm:text-sm" />
+                <MdCall className="text-gold-400 mt-0.5 flex-shrink-0 text-lg" />
                 <a
                   href={VENUE_INFO.phoneLink}
                   className="text-gray-300 hover:text-gold-400 transition-colors break-all"

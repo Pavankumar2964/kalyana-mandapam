@@ -9,6 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        premium: {
+          gold: '#c9a961',
+          maroon: '#a52a2a',
+          ivory: '#faf5ee',
+          cream: '#fdfbf7',
+          charcoal: '#1a1a1a',
+        },
         gold: {
           50: '#fdfbf7',
           100: '#faf5ee',
@@ -35,8 +42,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ['Georgia', 'serif'],
-        sans: ['system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'serif'],
+        sans: ['var(--font-sans)', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #c9a961 0%, #b8934d 100%)',

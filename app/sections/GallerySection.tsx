@@ -49,29 +49,41 @@ export default function GallerySection() {
         </FadeInUp>
 
         {/* Gallery Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredImages.map((image, idx) => (
               <motion.div
                 key={image.id}
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
                 onClick={() => setSelectedImage(image.id)}
-                className="group relative h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl overflow-hidden cursor-pointer shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-2xl transition-shadow duration-300"
+                className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer shadow-premium hover:shadow-2xl transition-all duration-500 border border-premium-gold/5"
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-2 sm:p-4">
-                  <div>
-                    <p className="text-white font-semibold text-xs sm:text-sm">{image.title}</p>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-premium-charcoal/80 via-premium-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                  <span className="text-gold-400 text-xs font-bold tracking-widest uppercase mb-1">{image.category}</span>
+                  <h3 className="text-white font-display text-lg leading-tight">{image.title}</h3>
+                  <div className="h-0.5 w-10 bg-premium-gold mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                 </div>
+                
+                {/* Specific descriptive overlays for key sections */}
+                {image.id === 2 && (
+                   <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
+                      Spacious Dining Area for 500+ Guests
+                   </div>
+                )}
+                {image.id === 1 && (
+                   <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
+                      Grand Stage for Your Special Day
+                   </div>
+                )}
               </motion.div>
             ))}
           </AnimatePresence>

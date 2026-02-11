@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Button from '@/app/components/Button'
 import { VENUE_INFO } from '@/lib/data'
-import { url } from 'inspector'
+import { MdCall } from 'react-icons/md'
 
 export default function HeroSection() {
   return (
@@ -42,13 +42,17 @@ export default function HeroSection() {
           </motion.div>
 
           <h1 className="heading-lg text-white text-shadow mb-2 sm:mb-4">
-            Srimathi Santharaghuraman
+            A Grand Venue for Your Most
             <br />
-            <span className="text-gold-300">Kalyana Mandapam</span>
+            <span className="text-gold-300">Memorable Moments</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed text-shadow px-2">
-            A premier destination for your dream wedding and celebrations in Chittoor
+            Srimathi Santharaghuraman Kalyana Mandapam offers a spacious, elegant, and fully equipped wedding hall in Chittoor — perfect for weddings, receptions, and family celebrations.
           </p>
+          <div className="mt-4 flex justify-center items-center gap-4 text-white/90 font-medium">
+             <span className="flex items-center gap-1">📍 Chittoor</span>
+             <span className="flex items-center gap-1">👥 1000+ Guests</span>
+          </div>
         </motion.div>
 
         {/* Rating */}
@@ -58,10 +62,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex justify-center gap-1 sm:gap-2 mb-6 sm:mb-8"
         >
-          <div className="inline-flex items-center gap-1 bg-gold-600/90 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm">
-            <span className="text-base sm:text-lg">⭐</span>
-            <span className="font-semibold">{VENUE_INFO.rating}</span>
-            <span className="text-xs sm:text-sm">({VENUE_INFO.reviews} reviews)</span>
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-sm">
+            <span className="text-gold-400">★★★★★</span>
+            <span className="font-semibold">4.3/5</span>
+            <span className="opacity-80">(622 Reviews)</span>
           </div>
         </motion.div>
 
@@ -70,13 +74,13 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button variant="primary" size="lg" href={VENUE_INFO.phoneLink}>
-            📞 Book Now
+          <Button variant="primary" size="lg" href="tel:+919440076063" className="w-full sm:w-auto min-w-[200px] shadow-gold-500/50 shadow-lg flex items-center justify-center gap-3">
+             <MdCall size={24} /> Call for Booking
           </Button>
-          <Button variant="outline" size="lg" href="#gallery">
-            📸 View Gallery
+          <Button variant="outline" size="lg" href="https://maps.app.goo.gl/QpzVaTXfWdWrSVhW6" className="w-full sm:w-auto min-w-[200px] bg-white/20 backdrop-blur-sm border-white">
+            📍 Get Directions
           </Button>
         </motion.div>
 

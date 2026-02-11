@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { VENUE_INFO } from '@/lib/data'
-import { FaPhone } from 'react-icons/fa'
+import { MdCall } from 'react-icons/md'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -58,7 +58,7 @@ export default function Navbar() {
               className="hidden sm:flex items-center gap-1 sm:gap-2 text-gold-600 hover:text-gold-700 font-semibold text-xs sm:text-sm whitespace-nowrap"
               title={VENUE_INFO.phone}
             >
-              <FaPhone size={14} className="sm:w-4 sm:h-4" />
+              <MdCall size={18} className="sm:w-5 sm:h-5 text-gold-600" />
               <span className="hidden lg:inline">{VENUE_INFO.phone}</span>
             </a>
 

@@ -19,9 +19,12 @@ export default function AboutSection() {
       <FadeInUp delay={0.1}>
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-12 md:mb-16">
     
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-4 sm:space-y-6">
+      <p className="text-lg sm:text-xl text-gray-800 font-display italic leading-relaxed">
+        Srimathi Santharaghuraman Kalyana Mandapam is a trusted wedding venue in Chittoor, known for its spacious halls, excellent facilities, and convenient location.
+      </p>
       <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-        {VENUE_INFO.description}
+        Designed to host traditional weddings and grand celebrations, our mandapam provides a comfortable and elegant setting for your special occasions.
       </p>
       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
         Located at {VENUE_INFO.address}, our venue is easily accessible and welcomes
