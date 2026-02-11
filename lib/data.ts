@@ -110,14 +110,14 @@ export const GALLERY_CATEGORIES = [
 export const GALLERY_IMAGES = [
   {
   id: 1,
-  src: '/stageflower.jpegw=800&h=600&fit=crop',
+  src: '/stageflower.jpeg',
   alt: 'Wedding stage with floral decoration',
   category: 'stage',
   title: 'Stage Decoration',
 },
   {
     id: 2,
-    src: '/Dh.jpegw=800&h=600&fit=crop',
+    src: '/Dh.jpeg',
     alt: 'Elegant dining hall setup',
     category: 'dining',
     title: 'Dining Hall',
