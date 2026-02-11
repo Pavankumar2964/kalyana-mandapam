@@ -118,9 +118,18 @@ export default function ContactSection() {
                 <Button variant="primary" size="md" href={VENUE_INFO.phoneLink}>
                   📞 Call Now
                 </Button>
-                <Button variant="secondary" size="md" href={VENUE_INFO.mapEmbedUrl}>
-                  📍 Get Directions
-                </Button>
+     <Button
+  variant="secondary"
+  size="md"
+  onClick={() =>
+    window.open(
+      "https://maps.app.goo.gl/aDgino9ZauqAr5ou5",
+      "_blank"
+    )
+  }
+>
+  📍 Get Directions
+</Button>
               </div>
             </div>
           </FadeInUp>
