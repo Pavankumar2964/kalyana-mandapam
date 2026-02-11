@@ -117,7 +117,7 @@ export const GALLERY_IMAGES = [
 },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1538631137307-37c217d21c0d?w=800&h=600&fit=crop',
+    src: '/Dh.jpeg',
     alt: 'Elegant dining hall setup',
     category: 'dining',
     title: 'Dining Hall',
