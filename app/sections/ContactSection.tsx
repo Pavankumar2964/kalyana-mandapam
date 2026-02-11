@@ -21,19 +21,15 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           {/* Map */}
           <FadeInUp delay={0.1}>
-            <div className="rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl h-64 sm:h-80 md:h-96 lg:h-full lg:min-h-96">
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                style={{ border: 0 }}
-                src={VENUE_INFO.mapEmbedUrl}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Venue Location"
-              />
-            </div>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+  <iframe
+    src={VENUE_INFO.mapEmbedUrl}
+    className="absolute inset-0 w-full h-full"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Venue Location"
+  />
+</div>
           </FadeInUp>
 
           {/* Contact Info */}
