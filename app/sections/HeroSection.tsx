@@ -78,6 +78,18 @@ export default function HeroSection() {
           <Button variant="outline" size="lg" href="#gallery">
             📸 View Gallery
           </Button>
+            <Button
+            variant="secondary"
+            size="md"
+            onClick={() =>
+              window.open(
+                "https://maps.app.goo.gl/aDgino9ZauqAr5ou5",
+                "_blank"
+              )
+            }
+          >
+            📍 Get Directions
+          </Button>
         </motion.div>
 
         {/* Scroll Indicator */}
