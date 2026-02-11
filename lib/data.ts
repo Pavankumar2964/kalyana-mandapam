@@ -110,21 +110,21 @@ export const GALLERY_CATEGORIES = [
 export const GALLERY_IMAGES = [
   {
   id: 1,
-  src: '/stageflower.jpeg',
+  src: '/stageflower.jpegw=800&h=600&fit=crop',
   alt: 'Wedding stage with floral decoration',
   category: 'stage',
   title: 'Stage Decoration',
 },
   {
     id: 2,
-    src: '/Dh.jpeg',
+    src: '/Dh.jpegw=800&h=600&fit=crop',
     alt: 'Elegant dining hall setup',
     category: 'dining',
     title: 'Dining Hall',
   },
   {
     id: 3,
-    src: '/fROOMS.jpeg',
+    src: '/fROOMS.jpegw=800&h=600&fit=crop',
     alt: 'Family room with comfortable beds',
     category: 'rooms',
     title: 'Family Rooms',
