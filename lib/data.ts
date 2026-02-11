@@ -124,7 +124,7 @@ export const GALLERY_IMAGES = [
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1631049307038-da31b2a57a87?w=800&h=600&fit=crop',
+    src: '/fROOMS.jpeg',
     alt: 'Family room with comfortable beds',
     category: 'rooms',
     title: 'Family Rooms',
