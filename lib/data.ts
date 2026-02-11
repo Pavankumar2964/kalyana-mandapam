@@ -159,7 +159,7 @@ export const GALLERY_IMAGES = [
   },
   {
     id: 8,
-    src: '/kL.jpeg',
+    src: '/KL.jpeg',
     alt: 'Building entrance',
     category: 'exterior',
     title: 'Entrance Gate',
