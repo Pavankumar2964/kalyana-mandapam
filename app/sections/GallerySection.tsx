@@ -1,19 +1,17 @@
-'use client'
-
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import FadeInUp from '@/app/components/FadeInUp'
-import Image from 'next/image'
-import { GALLERY_IMAGES, GALLERY_CATEGORIES } from '@/lib/data'
+"use client";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import FadeInUp from "@/app/components/FadeInUp";
+import Image from "next/image";
+import { GALLERY_IMAGES, GALLERY_CATEGORIES } from "@/lib/data";
 
 export default function GallerySection() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [selectedImage, setSelectedImage] = useState<null | number>(null)
-
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const filteredImages =
-    selectedCategory === 'all'
+    selectedCategory === "all"
       ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter((img) => img.category === selectedCategory)
+      : GALLERY_IMAGES.filter((img) => img.category === selectedCategory);
 
   return (
     <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-gray-50">
@@ -38,8 +36,8 @@ export default function GallerySection() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full font-semibold transition-all duration-300 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-gold text-white shadow-lg scale-105'
-                    : 'bg-white text-gold-600 border-2 border-gold-600 hover:bg-gold-50'
+                    ? "bg-gradient-gold text-white shadow-lg scale-105"
+                    : "bg-white text-gold-600 border-2 border-gold-600 hover:bg-gold-50"
                 }`}
               >
                 {category.name}
@@ -48,46 +46,11 @@ export default function GallerySection() {
           </div>
         </FadeInUp>
 
-        {/* Gallery Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filteredImages.map((image, idx) => (
-              <motion.div
-                key={image.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4 }}
-                onClick={() => setSelectedImage(image.id)}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer shadow-premium hover:shadow-2xl transition-all duration-500 border border-premium-gold/5"
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-premium-charcoal/80 via-premium-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
-                  <span className="text-gold-400 text-xs font-bold tracking-widest uppercase mb-1">{image.category}</span>
-                  <h3 className="text-white font-display text-lg leading-tight">{image.title}</h3>
-                  <div className="h-0.5 w-10 bg-premium-gold mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-                </div>
-                
-                {/* Specific descriptive overlays for key sections */}
-                {image.id === 2 && (
-                   <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
-                      Spacious Dining Area for 500+ Guests
-                   </div>
-                )}
-                {image.id === 1 && (
-                   <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
-                      Grand Stage for Your Special Day
-                   </div>
-                )}
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {/* Superimposed Sliding Gallery */}
+        <GallerySlider
+          images={filteredImages}
+          setSelectedImage={(id: number) => setSelectedImage(id)}
+        />
 
         {/* Lightbox */}
         <AnimatePresence>
@@ -129,5 +92,121 @@ export default function GallerySection() {
         </AnimatePresence>
       </div>
     </section>
-  )
+  );
+}
+
+// GallerySlider component for swipe and arrow navigation
+type GalleryImage = {
+  id: number;
+  src: string;
+  alt: string;
+  title: string;
+  category: string;
+};
+
+interface GallerySliderProps {
+  images: GalleryImage[];
+  setSelectedImage: (id: number) => void;
+}
+
+function GallerySlider({ images, setSelectedImage }: GallerySliderProps) {
+  const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+  };
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (diff > 50) {
+        setCurrent((prev) => (prev + 1) % images.length);
+      } else if (diff < -50) {
+        setCurrent((prev) => (prev - 1 + images.length) % images.length);
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  return (
+    <div
+      className="relative w-full aspect-[4/3] max-w-3xl mx-auto mb-10 select-none"
+      onTouchStart={isMobile ? handleTouchStart : undefined}
+      onTouchMove={isMobile ? handleTouchMove : undefined}
+      onTouchEnd={isMobile ? handleTouchEnd : undefined}
+    >
+      <AnimatePresence initial={false} mode="wait">
+        <motion.div
+          key={images[current]?.id}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0, zIndex: 2 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          onClick={() => setSelectedImage(images[current]?.id)}
+          className="absolute inset-0 rounded-2xl overflow-hidden cursor-pointer shadow-premium border border-premium-gold/5"
+          style={{ zIndex: 2 }}
+        >
+          <img
+            src={images[current]?.src}
+            alt={images[current]?.alt}
+            className={`w-full h-full object-cover hover:scale-105 transition-transform duration-700 ${isMobile ? 'pointer-events-none' : ''}`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-premium-charcoal/80 via-premium-charcoal/20 to-transparent opacity-0 hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+            <span className="text-gold-400 text-xs font-bold tracking-widest uppercase mb-1">{images[current]?.category}</span>
+            <h3 className="text-white font-display text-lg leading-tight">{images[current]?.title}</h3>
+            <div className="h-0.5 w-10 bg-premium-gold mt-2 transform scale-x-0 hover:scale-x-100 transition-transform origin-left duration-300"></div>
+          </div>
+          {/* Specific descriptive overlays for key sections */}
+          {images[current]?.id === 2 && (
+            <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
+              Spacious Dining Area for 500+ Guests
+            </div>
+          )}
+          {images[current]?.id === 1 && (
+            <div className="absolute top-4 left-4 bg-premium-gold/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-10">
+              Grand Stage for Your Special Day
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+      {/* Next/Prev Controls - always visible on desktop */}
+      {!isMobile && (
+        <>
+          <div className="absolute inset-y-0 left-0 flex items-center z-20">
+            <button
+              onClick={() => setCurrent((prev) => (prev - 1 + images.length) % images.length)}
+              className="bg-white/70 hover:bg-premium-gold text-premium-charcoal hover:text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg m-2"
+              aria-label="Previous image"
+              style={{ zIndex: 20 }}
+            >
+              &#8592;
+            </button>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center z-20">
+            <button
+              onClick={() => setCurrent((prev) => (prev + 1) % images.length)}
+              className="bg-white/70 hover:bg-premium-gold text-premium-charcoal hover:text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg m-2"
+              aria-label="Next image"
+              style={{ zIndex: 20 }}
+            >
+              &#8594;
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
