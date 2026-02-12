@@ -29,7 +29,7 @@ export default function StickyBottomBar() {
         </a>
 
         <a
-          href="https://maps.app.goo.gl/YourMapLink"
+          href="https://maps.app.goo.gl/WeNPKDR7QBgaUEwk9"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center gap-1 text-premium-gold active:scale-95 transition-transform"
